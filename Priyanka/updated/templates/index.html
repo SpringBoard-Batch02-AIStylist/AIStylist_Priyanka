@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Upload an Image</h1>
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" class="text-center">
+            <input type="file" name="file" required class="form-control-file my-3">
+            <input type="submit" value="Upload" class="btn btn-primary">
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function() {
+                $('input[type="submit"]').val('Uploading...').attr('disabled', 'disabled');
+            });
+        });
+    </script>
+</body>
+</html>
